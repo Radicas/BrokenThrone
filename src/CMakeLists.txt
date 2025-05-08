@@ -26,6 +26,7 @@ target_link_libraries(${PROJECT_NAME} PRIVATE
         OpenGL::GL
         GLEW::GLEW
         glfw
+        redcgl
 )
 
 if(UNIX)
