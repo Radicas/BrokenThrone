@@ -1,4 +1,4 @@
-project(my_learn_opengl_test)
+project(GraphicsLabTest)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -6,7 +6,6 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 include_directories(
         ${HEADERS_PATH}
         ${SOURCES_PATH}/include
-        ${SOURCES_PATH}/cjson
 )
 
 file(GLOB_RECURSE SOURCES

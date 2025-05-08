@@ -1,33 +1,25 @@
-#include <GL/glew.h>
-#include <GLFW/glfw3.h>
-#include <iostream>
+#include "my_learn_opengl/mainwindow.h"
+
+struct Color
+{
+    float r;
+    float g;
+    float b;
+    float a;
+    Color(float r, float g, float b, float a) : r(r), g(g), b(b), a(a) {}
+};
 
 int main()
 {
-    if (!glfwInit())
+    MainWindow window(640, 480, "My Window");
+
+    while (!window.shouldClose())
     {
-        std::cerr << "Failed to initialize GLFW" << std::endl;
-        return -1;
+        Color color(0, 0.5, 0.5, 1);
+        window.clear(color.r, color.g, color.b, color.a);
+        window.swapBuffers();
+        window.pollEvents();
     }
 
-    GLFWwindow* window = glfwCreateWindow(800, 600, "OpenGL Window", NULL, NULL);
-    if (!window)
-    {
-        glfwTerminate();
-        return -1;
-    }
-
-    glfwMakeContextCurrent(window);
-    glewInit();
-
-    while (!glfwWindowShouldClose(window))
-    {
-        glClear(GL_COLOR_BUFFER_BIT);
-        glfwSwapBuffers(window);
-        glfwPollEvents();
-    }
-
-    glfwDestroyWindow(window);
-    glfwTerminate();
     return 0;
 }

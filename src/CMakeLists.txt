@@ -1,16 +1,17 @@
 # 收集源文件
 file(GLOB_RECURSE SOURCES
         ${CMAKE_CURRENT_SOURCE_DIR}/*.cpp
+        ${SOURCES_PATH}/*.cpp
+        ${SOURCES_PATH}/*.c
 )
 
 # 添加头文件目录
 include_directories(
         ${HEADERS_PATH}
-        ${CMAKE_CURRENT_SOURCE_DIR}/include
 )
 
 # 编译成库
-add_library(${PROJECT_NAME} SHARED
+add_executable(${PROJECT_NAME}
         ${SOURCES}
 )
 
