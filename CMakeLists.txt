@@ -8,25 +8,25 @@ project(GraphicsLab
 )
 
 # 设置当前cmake路径为主路径
-set(CMAKE_HOME_PATH ${CMAKE_SOURCE_DIR})
+set(CMAKE_HOME_PATH ${CMAKE_CURRENT_SOURCE_DIR})
 
 # 自动生成版本文件
-configure_file(${CMAKE_HOME_PATH}/src/version.h.in ${CMAKE_HOME_PATH}/inc/my_learn_opengl/version.h)
+configure_file(${CMAKE_HOME_PATH}/src/version.h.in ${CMAKE_HOME_PATH}/inc/graphicslab/version.h)
 
-set(THIRD_PARTY_PATH ${CMAKE_SOURCE_DIR}/thirdparty)
+set(THIRD_PARTY_PATH ${CMAKE_CURRENT_SOURCE_DIR}/thirdparty)
 
 # 设置安装路径
-set(INSTALL_PATH ${CMAKE_SOURCE_DIR}/install)
+set(INSTALL_PATH ${CMAKE_CURRENT_SOURCE_DIR}/install)
 
 # 头文件目录
 set(HEADERS_PATH
-        ${CMAKE_SOURCE_DIR}/inc
+        ${CMAKE_CURRENT_SOURCE_DIR}/inc
         ${THIRD_PARTY_PATH}/glad/include
 )
 
 # 源文件目录
 set(SOURCES_PATH
-        ${CMAKE_SOURCE_DIR}/src
+        ${CMAKE_CURRENT_SOURCE_DIR}/src
         ${THIRD_PARTY_PATH}/glad/src
 )
 

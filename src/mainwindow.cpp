@@ -1,4 +1,4 @@
-#include "my_learn_opengl/mainwindow.h"
+#include "graphicslab/mainwindow.h"
 
 #include <glad/glad.h>
 #include <stdexcept>
