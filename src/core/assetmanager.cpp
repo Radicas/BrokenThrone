@@ -1,31 +1,45 @@
-#include "AssetManager.h"
-#include <stdexcept>
+#include "core/AssetManager.h"
 
 std::unordered_map<std::string, Texture2D> AssetManager::textures;
+std::unordered_map<std::string, Music> AssetManager::musicMap;
 
 void AssetManager::loadTexture(const std::string& name, const std::string& path)
 {
     if (textures.count(name) == 0)
     {
-        Texture2D tex = LoadTexture(path.c_str());
-        textures[name] = tex;
+        textures[name] = LoadTexture(path.c_str());
     }
 }
 
 Texture2D& AssetManager::getTexture(const std::string& name)
 {
-    if (textures.count(name) == 0)
+    return textures.at(name);
+}
+
+void AssetManager::loadMusic(const std::string& name, const std::string& path)
+{
+    if (musicMap.count(name) == 0)
     {
-        throw std::runtime_error("Texture not found: " + name);
+        musicMap[name] = LoadMusicStream(path.c_str());
     }
-    return textures[name];
+}
+
+Music& AssetManager::getMusic(const std::string& name)
+{
+    return musicMap.at(name);
 }
 
 void AssetManager::unloadAll()
 {
-    for (auto& pair : textures)
+    for (auto& [_, tex] : textures)
     {
-        UnloadTexture(pair.second);
+        UnloadTexture(tex);
     }
     textures.clear();
+
+    for (auto& [_, mus] : musicMap)
+    {
+        UnloadMusicStream(mus);
+    }
+    musicMap.clear();
 }

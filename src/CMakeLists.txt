@@ -15,5 +15,9 @@ target_link_libraries(${PROJECT_NAME} PRIVATE
         raylib
 )
 
-
-
+# 复制资源文件到build的exe目录下，让运行时代码可以相对路径检查
+add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
+        COMMAND ${CMAKE_COMMAND} -E copy_directory
+        ${CMAKE_SOURCE_DIR}/assets
+        $<TARGET_FILE_DIR:${PROJECT_NAME}>/assets
+)
