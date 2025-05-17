@@ -1,4 +1,4 @@
-#include "core/AssetManager.h"
+#include "core/assetmanager.h"
 
 std::unordered_map<std::string, Texture2D> AssetManager::textures;
 std::unordered_map<std::string, Music> AssetManager::musicMap;

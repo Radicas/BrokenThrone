@@ -2,7 +2,7 @@
 
 int main()
 {
-    Game game(1920, 1080, "Broken Throne");
+    Game game(800, 600, "Star Moon Legend");
     game.run();
     return 0;
 }

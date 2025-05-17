@@ -1,17 +1,21 @@
 #pragma once
 
-#include "gamestatemanager.h"  // 拿到 manager
-#include "gamestatemenu.h"     // 用来拿到 GameState 基类
+#include "core/assetmanager.h"
+#include "game/player/player.h"
+#include "game/tilemap/tilemap.h"
+#include "gamestate.h"
+#include "gamestatemanager.h"
 
 class StateInGame : public GameState
 {
    public:
-    StateInGame(GameStateManager& manager) : manager(manager) {}
+    StateInGame(GameStateManager& manager);
 
-    void update() override;
-    void render() override { /* 如无额外渲染可留空 */ }
-    bool shouldQuit() const override { return false; }
+    void update(float frameTime) override;
+    void render() override;
 
    private:
     GameStateManager& manager;
+    TileMap map;
+    Player player;
 };

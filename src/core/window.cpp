@@ -1,4 +1,4 @@
-#include "Window.h"
+#include "window.h"
 
 Window::Window(int w, int h, const std::string& title) : width(w), height(h)
 {

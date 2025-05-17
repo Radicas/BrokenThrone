@@ -9,10 +9,10 @@ class GameStateManager
    public:
     void setState(std::unique_ptr<GameState> state) { currentState = std::move(state); }
 
-    void update()
+    void update(float frameTime)
     {
         if (currentState)
-            currentState->update();
+            currentState->update(frameTime);
     }
 
     void render()
